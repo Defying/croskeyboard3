@@ -1,38 +1,60 @@
 # croskeyboard3
-HID Keyboard driver with function keys for Chromebooks that use the Chromium EC
+HID Keyboard driver with function keys for Chromebooks that use the Chromium EC. Now in Poker 2 layout!
 
 # Compatibility
 Works on the Chromebook Pixel and any chromebook released after the Pixel.
 
 # Function key mapping
 
-Ctrl + F1 = Back
+Things are a bit different from CoolStar's driver, as I've tried to mimic the Poker 2 layout (what I use daily).
 
-Ctrl + F2 = Forward
+The top row (brightness, volume, etc) keys now work like they do in Chrome OS, requiring no modifiers to be held to use them.
 
-Ctrl + F3 = Refresh
+Right Control is now a "Fn" key.
 
-Ctrl + F4 = Full Screen
+Fn + 1 = F1
 
-Ctrl + F5 = Task View
+Fn + 2 = F2
 
-Ctrl + F6 = Brightness Down
+Fn + 3 = F3
 
-Ctrl + F7 = Brightness Up
+Fn + 4 = F4
 
-Ctrl + F8 = Volume Mute
+Fn + 5 = F5
 
-Ctrl + F9 = Volume Down
+Fn + 6 = F6
 
-Ctrl + F10 = Volume Up
+Fn + 7 = F7
 
-Ctrl + Backspace = Delete
+Fn + 8 = F8
 
-Ctrl + Alt + Backspace = Ctrl + Alt + Delete
+Fn + 9 = F9
 
-Ctrl + Up = Page Up
+Fn + 0 = F10
 
-Ctrl + Down = Page Down
+Fn + "-/_" = F11
+
+Fn + "=/+" = F12 
+
+Fn + i = Insert
+
+Fn + P = Print Screen
+
+Fn + [ = Scroll Lock
+
+Fn + ] = Pause/Break
+
+Fn + ' = Page Up
+
+Fn = / = Page Down
+
+Fn + ; = Home
+
+Fn + . = End
+
+Fn + Backspace = Delete
+
+Fn + Enter = Numpad Enter
 
 # License
 croskeyboard3 is © 2015, CoolStar.
