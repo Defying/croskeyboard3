@@ -724,128 +724,202 @@ void keyPressed(PCROSKEYBOARD_CONTEXT pDevice) {
 	for (int i = 0; i < KBD_KEY_CODES; i++) {
 		keyCodes[i] = pDevice->keyCodes[i];
 		BYTE keyCode = keyCodes[i];
-		if (pDevice->LeftCtrl) {
 			if (keyCode == 0x3a) {
-				overrideCtrl = true;
 				overrideAlt = true;
-				keyCodes[i] = 0x50;
-				//Alt+Back Arrow (F1)
+				keyCodes[i] = 0x50; // Alt+Back Arrow (F1)
 			}
 			else if (keyCode == 0x3b) {
-				overrideCtrl = true;
 				overrideAlt = true;
-				keyCodes[i] = 0x4f;
-				//Alt+Forward Arrow (F2)
+				keyCodes[i] = 0x4f; // Alt+Forward Arrow (F2)
 			}
 			else if (keyCode == 0x3c) {
-				overrideCtrl = true;
-				keyCodes[i] = 0x3e;
-				//F5 (F3)
+				keyCodes[i] = 0x3e; // F5 (F3)
 			}
 			else if (keyCode == 0x3d) {
-				overrideCtrl = true;
-				keyCodes[i] = 0x44;
-				//F11 (F4)
+				keyCodes[i] = 0x44; // F11 (F4)
 			}
 			else if (keyCode == 0x3e) {
-				if (pDevice->LeftShift) {
-					overrideCtrl = true;
-					overrideWin = true;
-					overrideShift = true;
-					keyCodes[i] = 0x46;
-					//Win + Print Screen (Shift + F5)
-				}
-				else {
-					overrideCtrl = true;
-					overrideWin = true;
-					keyCodes[i] = 0x2b;
-					//win+tab (F5)
-				}
+				overrideWin = true;
+				keyCodes[i] = 0x2b; // Win+Tab (F5)
 			}
 			else if (keyCode == 0x3f) {
 				mediaKey = true;
-				consumerKey = 0x02;
-				//brightness down (F6)
+				consumerKey = 0x02; // Brightness Down (F6)
 			}
 			else if (keyCode == 0x40) {
 				mediaKey = true;
-				consumerKey = 0x01;
-				//brightness up (F7)
+				consumerKey = 0x01; // Brightness Up (F7)
 			}
 			else if (keyCode == 0x41) {
 				mediaKey = true;
-				consumerKey = 0x10; //mute (F8)
+				consumerKey = 0x10; // Mute (F8)
 			}
 			else if (keyCode == 0x42) {
 				mediaKey = true;
-				consumerKey = 0x40; //volume down (F9)
+				consumerKey = 0x40; // Volume Down (F9)
 			}
 			else if (keyCode == 0x43) {
 				mediaKey = true;
-				consumerKey = 0x20; //volume up (F10)
+				consumerKey = 0x20; // Volume Up (F10)
 			}
-			else if (keyCode == 0x2a) {
-				if (!pDevice->LeftAlt)
-					overrideCtrl = true;
-				keyCodes[i] = 0x4c; //delete (backspace)
-			}
-			else if (keyCode == 0x52) {
-				overrideCtrl = true;
-				keyCodes[i] = 0x4b; //page up (up arrow)
-			}
-			else if (keyCode == 0x51) {
-				overrideCtrl = true;
-				keyCodes[i] = 0x4e; //page down (down arrow)
-			}
-		}
+
 		if (pDevice->RightCtrl) {
-			if (keyCode == 0x1E) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3A; //F1 (1)
+			overrideRCtrl = true;
+			if (pDevice->LeftWin) {
+				overrideWin = true;
+				keyCodes[i] = 0x39; // Caps Lock (Fn + Search)
 			}
-			else if (keyCode == 0x1F) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3B; //F2 (2)
+			else if (keyCode == 0x1e) {
+				keyCodes[i] = 0x3a; // F1
+			}
+			else if (keyCode == 0x1f) {
+				keyCodes[i] = 0x3b; // F2
 			}
 			else if (keyCode == 0x20) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3C; //F3 (3)
+				keyCodes[i] = 0x3c; // F3
 			}
 			else if (keyCode == 0x21) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3D; //F4 (4)
+				keyCodes[i] = 0x3d; // F4
 			}
 			else if (keyCode == 0x22) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3E; //F5 (5)
+				keyCodes[i] = 0x3e; // F5
 			}
 			else if (keyCode == 0x23) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x3F; //F6 (6)
+				keyCodes[i] = 0x3f; // F6
 			}
 			else if (keyCode == 0x24) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x40; //F7 (7)
+				keyCodes[i] = 0x40; // F7
 			}
 			else if (keyCode == 0x25) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x41; //F8 (8)
+				keyCodes[i] = 0x41; // F8
 			}
 			else if (keyCode == 0x26) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x42; //F9 (9)
+				keyCodes[i] = 0x42; // F9
 			}
 			else if (keyCode == 0x27) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x43; //F10 (0)
+				keyCodes[i] = 0x43; // F10
 			}
-			else if (keyCode == 0x2D) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x44; //F11 (-)
+			else if (keyCode == 0x2d) {
+				keyCodes[i] = 0x44; // F11
 			}
-			else if (keyCode == 0x2E) {
-				overrideRCtrl = true;
-				keyCodes[i] = 0x45; //F12 (=)
+			else if (keyCode == 0x2e) {
+				keyCodes[i] = 0x45; // F12
+			}
+			else if (keyCode == 0x1b) {
+				keyCodes[i] = 0x65; // App (x)
+			}
+			else if (keyCode == 0x34) {
+				keyCodes[i] = 0x4b; // Page Up (')
+			}
+			else if (keyCode == 0x38) {
+				keyCodes[i] = 0x4e; // Page Down (/)
+			}
+			else if (keyCode == 0x13) {
+				keyCodes[i] = 0x46; // Print Screen (p)
+			}
+			else if (keyCode == 0x33) {
+				keyCodes[i] = 0x4a; // Home (;)
+			}
+			else if (keyCode == 0x37) {
+				keyCodes[i] = 0x4d; // End (.)
+			}
+			else if (keyCode == 0x2f) {
+				keyCodes[i] = 0x47; // Scroll Lock ([)
+			}
+			else if (keyCode == 0x30) {
+				keyCodes[i] = 0x48; // Pause (])
+			}
+			else if (keyCode == 0x0c) {
+				keyCodes[i] = 0x49; // Insert (i)
+			}
+			else if (keyCode == 0x2a) {
+				keyCodes[i] = 0x4c; // Delete (backspace)
+			}
+			else if (keyCode == 0x28) {
+				keyCodes[i] = 0x58; // Numpad Enter (Enter)
+			}
+
+			// Disable other keys
+			else if (keyCode == 0x04) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x05) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x06) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x07) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x08) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x09) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x0a) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x0b) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x0d) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x0e) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x0f) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x10) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x11) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x12) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x14) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x15) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x16) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x17) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x18) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x19) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x1a) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x1c) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x1d) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x36) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x31) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x64) {
+				keyCodes[i] = 0x00;
+			}
+			else if (keyCode == 0x35) {
+				keyCodes[i] = 0x00;
 			}
 		}
 	}
